@@ -38,8 +38,8 @@ async def health():
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
-    result = await chat_with_erp(
-        message=request.message,
+    result = chat_with_erp(
+        user_message=request.message,
         conversation_history=request.conversation_history
     )
     return ChatResponse(**result)
