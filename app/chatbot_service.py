@@ -5,12 +5,20 @@ import os
 import json
 from groq import Groq
 from dotenv import load_dotenv
-from app.mock_oracle_api import (
-    get_employees,
-    get_purchase_orders,
-    get_invoices,
-    get_department_summary
-)
+try:
+    from app.mock_oracle_api import (
+        get_employees,
+        get_purchase_orders,
+        get_invoices,
+        get_department_summary
+    )
+except ImportError:
+    from mock_oracle_api import (
+        get_employees,
+        get_purchase_orders,
+        get_invoices,
+        get_department_summary
+    )
 
 load_dotenv()
 
