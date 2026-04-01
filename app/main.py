@@ -37,7 +37,6 @@ async def health():
     return {"status": "ok", "service": "ERP Chatbot"}
 
 @app.post("/chat", response_model=ChatResponse)
-@app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     result = chat_with_erp(
         user_message=request.message,
